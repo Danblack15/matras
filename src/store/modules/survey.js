@@ -1,3 +1,5 @@
+import { filterMatras } from '@/helpers/filterMatras';
+
 //------- types
 /* 
     input  - поле для ввода
@@ -11,22 +13,22 @@
     no     - false
 */
 const quests = [
-    {
-        id: 'personParameters',
-        title: 'Ваш рост и вес',
-        fields: [
-            {
-                type: 'input',
-                value: 'number',
-                placeholder: 'Рост'
-            },
-            {
-                type: 'input',
-                value: 'number',
-                placeholder: 'Вес'
-            },
-        ]
-    },
+    // {
+    //     id: 'personParameters',
+    //     title: 'Ваш рост и вес',
+    //     fields: [
+    //         {
+    //             type: 'input',
+    //             value: 'number',
+    //             placeholder: 'Рост'
+    //         },
+    //         {
+    //             type: 'input',
+    //             value: 'number',
+    //             placeholder: 'Вес'
+    //         },
+    //     ]
+    // },
     {
         id: 'singleSleep',
         title: 'Вы будете спать один?',
@@ -50,7 +52,8 @@ const quests = [
             {
                 type: 'button',
                 value: false,
-                placeholder: 'Малый'
+                placeholder: 'Малый',
+                removeQuests: ['more12', 'durability', 'noizFact']
             },
             {
                 type: 'button',
@@ -66,7 +69,8 @@ const quests = [
             {
                 type: 'button',
                 value: false,
-                placeholder: 'Нет'
+                placeholder: 'Нет',
+                removeQuests: ['durability', 'noizFact']
             },
             {
                 type: 'button',
@@ -92,7 +96,7 @@ const quests = [
         ]
     },
     {
-        id: 'noiz',
+        id: 'noizFact',
         title: 'Является ли важным фактором наличие шума матраса?',
         fields: [
             {
@@ -113,7 +117,8 @@ export const Survey = {
     state: () => ({
         quests: quests,
         step: 0,
-        answers: []
+        answers: [],
+        result: [],
     }),
 
     getters: {
@@ -124,22 +129,65 @@ export const Survey = {
             if (!state?.quests[state.step]) return null;
 
             return state.quests[state.step];
+        },
+        getResult(state) {
+            return state.result;
         }
     },
 
     mutations: {
         setNextStep(state) {
             state.step = ++state.step;
+        },
+        setNewAnswer(state, data) {
+            state.answers.push(data);
+        },
+        setResult(state) {
+            const result = filterMatras(state.answers);
+
+            state.result = result;
+        },
+        refreshQuests(state, removeItems) {
+            const tempQuest = [...state.quests];
+
+            state.quests = state.quests.filter(quest => {
+                return !removeItems.find(item => item == quest.id);
+            });
+
+            const skippedQuests = tempQuest.filter(quest => {
+                return removeItems.find(item => item == quest.id);
+            })
+            
+            skippedQuests.forEach(quest => {
+                state.answers.push({
+                    id: quest.id,
+                    value: false
+                });
+            });
+
+            console.log(state.answers);
         }
     },
 
     actions: {
-        nextStep({ commit }) {
+        nextStep({ commit, state }) {
             commit('setNextStep');
+
+            if (state.step == state.quests.length)
+                commit('setResult')
         },
-        setNewAnswer({ commit }, answer) {
-            
-        }
+        addNewAnswer({ commit }, questData) {
+            const { id } = questData.quest,
+                { value } = questData.field;
+
+            commit('setNewAnswer', {id, value});
+
+            const selectedField = questData.quest.fields.filter(field => field.value === value)[0];
+
+            if (!selectedField?.removeQuests?.length) return;
+
+            commit('refreshQuests', selectedField.removeQuests)
+        },
     },
 
     namespaced: true,

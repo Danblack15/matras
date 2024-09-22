@@ -1,0 +1,80 @@
+[
+    {
+        "id": "ClassicHard",
+        "title": "Матрас Classic Hard",
+        "link": "https://www.askona.ru/matrasy/matras-classic-hard.htm?SELECTED_HASH_SIZE=80x200-99f4666067a778dd908a8d67652aeb74",
+        "image": "https://www.askona.ru/_next/image?url=https%3A%2F%2Fwww.askona.ru%2Fupload%2Fcatalog_product_images%2Fmatrasy%2Fmatras-classic-hard%2Fmatras2.webp&w=1080&q=75",
+        "params": {
+            "singleSleep": true,
+            "budget": false,
+            "more12": false,
+            "durability": false,
+            "noizFact": false
+        }
+    },
+    {
+        "id": "ClassicHard2",
+        "title": "Матрас Classic Hard",
+        "link": "https://www.askona.ru/matrasy/matras-classic-hard.htm?SELECTED_HASH_SIZE=80x200-99f4666067a778dd908a8d67652aeb74",
+        "image": "https://www.askona.ru/_next/image?url=https%3A%2F%2Fwww.askona.ru%2Fupload%2Fcatalog_product_images%2Fmatrasy%2Fmatras-classic-hard%2Fmatras2.webp&w=1080&q=75",
+        "params": {
+            "singleSleep": true,
+            "budget": true,
+            "more12": false,
+            "durability": false,
+            "noizFact": false
+        }
+    },
+    {
+        "id": "FamilyCare",
+        "title": "Анатомический матрас Family Care",
+        "link": "https://www.askona.ru/matrasy/family-care.htm?SELECTED_HASH_SIZE=80x190-f91bf639f22c0c7123f070bdc86bc66b",
+        "image": "https://www.askona.ru/_next/image?url=https%3A%2F%2Fwww.askona.ru%2Fupload%2Fcatalog_product_images%2Fmatrasy%2Ffamily-care%2Fcare_7.webp&w=828&q=75",
+        "params": {
+            "singleSleep": true,
+            "budget": true,
+            "more12": true,
+            "durability": true,
+            "noizFact": true
+        }
+    },
+    {
+        "id": " BasiciSimpleAir9",
+        "title": "Анатомический матрас Basic iSimple Air 9",
+        "link": "https://www.askona.ru/matrasy/basic-isimple-air-9.htm?SELECTED_HASH_SIZE=160x190-1a15777d116bbfccf8701751320f2b00",
+        "image": "https://www.askona.ru/_next/image?url=https%3A%2F%2Fwww.askona.ru%2Fupload%2Fcatalog_product_images%2Fmatrasy%2Fbasic-isimple-air-9%2Fbasic-isimple-air-9_1.webp&w=1080&q=75",
+        "params": {
+            "singleSleep": false,
+            "budget": false,
+            "more12": false,
+            "durability": false,
+            "noizFact": false
+        }
+    },
+    {
+        "id": " SertaDenverHard",
+        "title": "Анатомический матрас Serta Denver Hard",
+        "link": "https://www.askona.ru/matrasy/serta-denver-hard.htm?SELECTED_HASH_SIZE=160x200-af13bfd624e1acd34f2103481efea402",
+        "image": "https://www.askona.ru/_next/image?url=https%3A%2F%2Fwww.askona.ru%2Fupload%2Fcatalog_product_images%2Fmatrasy%2Fserta-denver-hard%2Fdenver_4.webp&w=1080&q=75",
+        "params": {
+            "singleSleep": false,
+            "budget": true,
+            "more12": true,
+            "durability": true,
+            "noizFact": true
+        }
+    },
+    {
+        "id": " ClassicMedium",
+        "title": "Матрас Classic Medium",
+        "link": "https://www.askona.ru/matrasy/matras-classic-medium.htm?SELECTED_HASH_SIZE=160x200-af13bfd624e1acd34f2103481efea402",
+        "image": "https://www.askona.ru/_next/image?url=https%3A%2F%2Fwww.askona.ru%2Fupload%2Fcatalog_product_images%2Fmatrasy%2Fmatras-classic-medium%2Fmedium_5.webp&w=828&q=75",
+        "params": {
+            "singleSleep": false,
+            "budget": true,
+            "more12": true,
+            "durability": true,
+            "noizFact": false
+        }
+    }
+]
